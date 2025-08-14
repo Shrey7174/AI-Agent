@@ -6,7 +6,7 @@ This fully functional web application automates content creation and scheduling,
 
 # Features
 - Autonomous Content Generation 
-- AI agent powered by LangChain and Google Gemini that autonomously researches current industry trends and creates  Navigate to backend folder
+- AI agent powered by LangChain and Google Gemini that autonomously researches current industry trends and creates  - Navigate to backend folder
 cd backend
 
 # Install dependencies
@@ -23,18 +23,6 @@ Run the backend server:
 ```bash
 python -m app.main
 ```
-# Usage
-
-    Connect to LinkedIn
-    Click "Connect to LinkedIn" on the dashboard to authenticate with your account.
-
-    Generate a Post
-    Click "Generate Content" — the AI agent will research trending topics and create a LinkedIn post.
-
-    Schedule a Post
-    Use "Schedule Post" to add it to your content calendar.
-    The background scheduler will publish it automatically.
-
 
 # Automated Posting 
 Background scheduler (APScheduler) that automatically publishes content to LinkedIn at a set time.
