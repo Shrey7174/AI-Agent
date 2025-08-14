@@ -22,7 +22,6 @@ class Post(db.Model):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     content = Column(String)
-    # --- ADDED: The new topic and post_type columns ---
     topic = Column(String)
     post_type = Column(String)
     is_scheduled = Column(Integer, default=1)

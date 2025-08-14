@@ -1,4 +1,3 @@
-// frontend/src/components/ContentPanel.jsx
 import React, { useState } from 'react';
 import { Plus, Share2, Clipboard } from 'lucide-react';
 

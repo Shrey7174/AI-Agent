@@ -1,19 +1,15 @@
-# app/services/llm_service.py
-# Business logic for the AI agent, using LangChain.
 
 import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.tools import tool
 from dotenv import load_dotenv
-import time # --- NEW: Import the time library ---
+import time 
 
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-# app/services/llm_service.py
-# ... all your imports ...
 
 def create_linkedin_post_agent(user_profile: dict, topic: str, post_type: str):
     """

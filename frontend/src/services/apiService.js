@@ -1,4 +1,3 @@
-// frontend/src/services/apiService.js
 
 const API_BASE_URL = import.meta.env.VITE_URL;
 
@@ -13,7 +12,6 @@ const fetchProfile = async (id, setProfile) => {
     setProfile({
       name: data.name,
       title: data.title || 'Profile title not set.',
-      // --- CHANGE: Removed hardcoded connections and posts ---
       connections: null,
       recentPosts: null,
       imageUrl: 'https://placehold.co/100x100/A0AEC0/ffffff?text=JD'
@@ -71,10 +69,7 @@ const generateContent = async (userId, topic, postType, setNewPost, setLoading) 
   }
 };
 
-// frontend/src/services/apiService.js
-// ... all your existing code ...
 
-// frontend/src/services/apiService.js
 const schedulePost = async (userId, newPost, topic, postType, setNewPost, setCalendar, calendar) => {
   if (!userId) {
     alert('Please connect to LinkedIn first.');

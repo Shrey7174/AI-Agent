@@ -1,16 +1,14 @@
-# app/services/linkedin_service.py
-# Business logic for interacting with the LinkedIn API.
 
 import os
 import requests
-import json # --- ADDED: Import json for better payload handling ---
+import json 
 from dotenv import load_dotenv
 
 load_dotenv()
 
 LINKEDIN_CLIENT_ID = os.getenv("LINKEDIN_CLIENT_ID")
 LINKEDIN_CLIENT_SECRET = os.getenv("LINKEDIN_CLIENT_SECRET")
-REDIRECT_URI = "http://127.0.0.1:5000/linkedin-callback"
+REDIRECT_URI = "http://127.0.0.1:5000/api/linkedin-callback"
 LINKEDIN_AUTH_URL = f"https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id={LINKEDIN_CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope=openid%20profile%20email%20w_member_social"
 
 def get_user_profile_data(user_access_token: str):
@@ -32,7 +30,6 @@ def publish_to_linkedin(post_data: dict, access_token: str):
         "X-Restli-Protocol-Version": "2.0.0"
     }
     
-    # --- CHANGE: Corrected payload for specificContent and added visibility field ---
     payload = {
         "author": f"urn:li:person:{post_data['linkedin_id']}",
         "lifecycleState": "PUBLISHED",

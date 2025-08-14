@@ -1,4 +1,3 @@
-# app/routes/content_routes.py
 from flask import Blueprint, request, redirect, url_for, jsonify, abort
 from ..database import db
 from ..models import User, Post
@@ -115,6 +114,5 @@ def schedule_post():
 def get_content_calendar(user_id):
     """Retrieves all scheduled posts for a user from the database."""
     posts = Post.query.filter_by(user_id=user_id).all()
-    # The ValidationError is likely happening here on older posts
     posts_list = [PostResponse.from_orm(post).dict() for post in posts]
     return jsonify(posts_list)

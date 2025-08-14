@@ -16,7 +16,6 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
-    # --- Database Configuration ---
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///./sql_app.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
@@ -24,9 +23,8 @@ def create_app():
     with app.app_context():
         db.create_all()
 
-    # --- CHANGE: Ensure the content_bp is registered with the app ---
-    app.register_blueprint(user_bp, url_prefix="/users")
-    app.register_blueprint(content_bp)
+    app.register_blueprint(user_bp, url_prefix="/api/users")
+    app.register_blueprint(content_bp,url_prefix="/api")
     
     scheduler.add_job(
         func=publish_scheduled_posts, 
@@ -36,7 +34,7 @@ def create_app():
     )
     scheduler.start()
 
-    @app.route("/")
+    @app.route("/api")
     def read_root():
         return jsonify({"message": "Welcome to the INFLUENCE OS API!"})
     

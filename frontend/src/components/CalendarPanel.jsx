@@ -27,7 +27,7 @@ const CalendarPanel = ({ calendar, showCalendar, setShowCalendar }) => (
                 <p className="text-sm text-gray-300">
                   {new Date(post.scheduled_at).toLocaleString()}
                 </p>
-                {/* --- CHANGE: Added a visual indicator for published status --- */}
+                {}
                 {post.is_scheduled === 0 ? (
                   <span className="text-xs font-semibold px-2 py-1 rounded-full bg-green-500 text-white">Published</span>
                 ) : (
